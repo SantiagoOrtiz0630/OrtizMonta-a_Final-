@@ -1,0 +1,23 @@
+{
+  "name": "taller",
+  "version": "1.0.0",
+  "description": "Taller - Programacion Web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "consolidate": "^0.15.1",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mongod": "^2.0.0",
+    "mongodb": "^3.0.7",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.4",
+    "path": "^0.12.7",
+    "swipe-js": "^2.2.0"
+  },
+  "devDependencies": {}
+}

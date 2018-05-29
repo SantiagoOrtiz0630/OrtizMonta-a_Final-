@@ -1,0 +1,1190 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  font-style: normal;
+}
+
+#error {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+#error > h2 {
+  font-family: "Montserrat", sans-serif;
+  color: #5c5c5c;
+  font-size: 24px;
+  margin: 10px;
+  font-weight: 500;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+#error > h3 {
+  font-family: "Montserrat", sans-serif;
+  color: #141414;
+  font-size: 24px;
+  font-style: oblique;
+  margin: 10px;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body {
+  background-color: #fafafa;
+  width: 100%;
+  height: auto;
+}
+
+body #up {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #141414;
+}
+
+body #up #slider {
+  width: 100%;
+  height: 100%;
+}
+
+body #up #slider div {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+body #up header {
+  position: absolute;
+  padding: 10px;
+  width: 100%;
+  top: 0;
+  color: #fafafa;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  body #up header {
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}
+
+body #up header .logo {
+  width: 100px;
+  height: 15px;
+  left: 20px;
+  top: 20px;
+  position: absolute;
+  background-image: url("/rec/logo.svg");
+  background-size: cover;
+  background-position: center;
+}
+
+body #up header .menu {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  body #up header .menu {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+}
+
+body #up header .menu a {
+  color: #fafafa;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  font-size: 16px;
+  margin: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  transition: all .2s ease-in-out;
+}
+
+body #up header .menu a:hover {
+  color: #1688e6;
+}
+
+body #up > .cont {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: center;
+}
+
+body #up > .cont > a {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  text-decoration: none;
+  width: auto;
+  height: auto;
+}
+
+body #up > .cont > a > #feedDown {
+  width: 50px;
+  height: 50px;
+  background-image: url("/rec/feedDown.svg");
+  background-size: cover;
+  background-position: center;
+  filter: opacity(40%);
+  transition: all ease-in-out .3s;
+}
+
+body #up > .cont > a > #feedDown:hover {
+  filter: opacity(90%);
+}
+
+body #disc {
+  background-color: #fafafa;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: center;
+}
+
+body #disc > h2 {
+  color: #141414;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #disc #contAlbum {
+  width: 80%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: flex-start;
+}
+
+body #disc #contAlbum .album {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  background-size: cover;
+  background-position: center;
+  width: 400px;
+  height: 400px;
+}
+
+@media screen and (max-width: 600px) {
+  body #disc #contAlbum .album {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+body #disc #contAlbum .album .bck {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #fafafa;
+  transition: all .2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  filter: opacity(0%);
+}
+
+body #disc #contAlbum .album .bck > h2 {
+  margin: 5px;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+body #disc #contAlbum .album .bck > h3 {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+body #disc #contAlbum .album .bck > a {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  position: absolute;
+  bottom: 30px;
+  /*>button{
+                        }*/
+}
+
+body #disc #contAlbum .album .bck:hover {
+  filter: opacity(90%);
+}
+
+body #resumen {
+  background: #141414;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: center;
+}
+
+body #resumen > h2 {
+  color: #fafafa;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #resumen > .cont {
+  width: 80%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 900px) {
+  body #resumen > .cont {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+body #resumen > .cont #listMusic {
+  width: 100%;
+  height: auto;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 500px) {
+  body #resumen > .cont #listMusic {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+  }
+}
+
+body #resumen > .cont #listMusic > .songLink {
+  width: 180px;
+  height: auto;
+  margin: 10px;
+  background-color: #fafafa;
+  transition: all ease-in-out .3s;
+}
+
+body #resumen > .cont #listMusic > .songLink > a {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  text-decoration: none;
+}
+
+body #resumen > .cont #listMusic > .songLink > a > div {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #resumen > .cont #listMusic > .songLink > a > .cont {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+body #resumen > .cont #listMusic > .songLink > a > .cont > h2 {
+  color: #2d2d2d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  font-style: oblique;
+  transition: all ease-in-out .3s;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #resumen > .cont #listMusic > .songLink:hover {
+  background-color: #1688e6;
+  -webkit-box-shadow: 0px 0px 10px 1px #1688e6;
+  -moz-box-shadow: 0px 0px 10px 1px #1688e6;
+  box-shadow: 0px 0px 10px 1px #1688e6;
+}
+
+body #resumen > .cont #listMusic > .songLink:hover > a > .cont > h2 {
+  color: #fafafa;
+}
+
+body #sub {
+  position: relative;
+  widows: 100%;
+  height: auto;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+body #sub > h1 {
+  text-align: center;
+  width: 80%;
+  height: auto;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-style: oblique;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  margin-bottom: 50px;
+}
+
+body #sub > label {
+  width: 100%;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+}
+
+body #sub > label .inpCorreo {
+  padding: 6px 10px;
+  border: solid #141414 5px;
+  text-decoration: none;
+  background: none;
+  font-family: "Rajdhani", sans-serif;
+  color: #141414;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 12px;
+  transition: all .2s ease-in-out;
+}
+
+body #sub > label .inpCorreo:hover {
+  color: #1688e6;
+  border: solid #1688e6 5px;
+}
+
+body #sub > label #btnCorreo {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #sub > label #correo {
+  width: 30%;
+  margin-right: 30px;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #info {
+  width: 100%;
+  height: auto;
+  background-color: #141414;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+
+body #info > h2 {
+  color: #fafafa;
+  font-style: oblique;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #info #contCard {
+  width: 80%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+@media screen and (max-width: 850px) {
+  body #info #contCard {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+body #info #contCard .card {
+  position: relative;
+  margin: 20px;
+  width: 300px;
+  height: auto;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  transition: all .2s ease-in-out;
+  text-align: justify;
+}
+
+body #info #contCard .card > h2 {
+  margin: 40px;
+  font-family: "Montserrat", sans-serif;
+  color: #141414;
+  font-size: 16px;
+  font-weight: 800;
+  transition: all .2s ease-in-out;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #info #contCard .card > p {
+  width: 80%;
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-family: "Rajdhani", sans-serif;
+  color: #141414;
+  transition: all .2s ease-in-out;
+}
+
+body #info #contCard .card > ul {
+  width: 80%;
+  text-decoration: none;
+  list-style: none;
+  margin-bottom: 20px;
+  transition: all .2s ease-in-out;
+}
+
+body #info #contCard .card > ul li {
+  font-size: 14px;
+  margin: 20px 0;
+  font-family: "Rajdhani", sans-serif;
+  color: #141414;
+}
+
+body #info #contCard .card:hover > h2 {
+  color: #1688e6;
+}
+
+body #app {
+  position: relative;
+  width: 100%;
+  height: auto;
+  top: 0;
+  background-color: #141414;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+
+body #app > .titleSec {
+  color: #fafafa;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #app > .space {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #app > .cont {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: 900px;
+}
+
+body #app > .cont #filter {
+  width: 250px;
+  height: auto;
+  background-color: #fafafa;
+  padding: 40px;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: flex-start;
+}
+
+body #app > .cont #filter > h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-style: oblique;
+  font-size: 16px;
+  margin: 15px 0;
+  color: #141414;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #app > .cont #filter > a {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 2px 0;
+  text-decoration: none;
+  color: #141414;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #app > .cont #filter > a:hover {
+  color: #1688e6;
+}
+
+body #app > .cont #music {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  width: 80%;
+  height: 100%;
+}
+
+body #app > .cont #music #listMusic {
+  width: 100%;
+  height: 100%;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: space-between;
+  align-items: flex-start;
+  overflow: auto;
+}
+
+@media screen and (max-width: 500px) {
+  body #app > .cont #music #listMusic {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+  }
+}
+
+body #app > .cont #music #listMusic > .songLink {
+  width: 180px;
+  height: auto;
+  margin: 20px;
+  background-color: #fafafa;
+  transition: all ease-in-out .3s;
+}
+
+body #app > .cont #music #listMusic > .songLink > a {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  text-decoration: none;
+}
+
+body #app > .cont #music #listMusic > .songLink > a > div {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #app > .cont #music #listMusic > .songLink > a > .cont {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+body #app > .cont #music #listMusic > .songLink > a > .cont > h2 {
+  text-align: center;
+  color: #2d2d2d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  font-style: oblique;
+  transition: all ease-in-out .3s;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #app > .cont #music #listMusic > .songLink:hover {
+  background-color: #1688e6;
+  -webkit-box-shadow: 0px 0px 10px 1px #1688e6;
+  -moz-box-shadow: 0px 0px 10px 1px #1688e6;
+  box-shadow: 0px 0px 10px 1px #1688e6;
+}
+
+body #app > .cont #music #listMusic > .songLink:hover > a > .cont > h2 {
+  color: #fafafa;
+}
+
+body #song {
+  background-color: #141414;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+
+body #song > .cont {
+  width: 80%;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+body #song > .cont #data {
+  margin: 20px 0;
+  width: 500px;
+  height: 500px;
+  padding: 40px;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  background-color: #141414;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  transition: all ease-in-out .3s;
+}
+
+body #song > .cont #data:hover {
+  background-color: #fafafa;
+}
+
+body #song > .cont #data:hover h2 {
+  color: #141414;
+}
+
+body #song > .cont #data:hover h3 {
+  color: #141414;
+}
+
+body #song > .cont #data:hover #agregar {
+  color: #141414;
+  border-color: #141414;
+}
+
+body #song > .cont #data > div {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  width: 200px;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  margin: 10px 0;
+}
+
+body #song > .cont #data > h2 {
+  font-family: "Montserrat", sans-serif;
+  color: #fafafa;
+  font-size: 18px;
+  font-style: oblique;
+  margin: 10px 0;
+  font-weight: 800;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #song > .cont #data > h3 {
+  font-family: "Rajdhani", sans-serif;
+  color: #fafafa;
+  font-size: 16px;
+  margin: 10px 0;
+  font-weight: 500;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #song > .cont #data > #agregar {
+  order: 0;
+  margin: 10px 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  padding: 6px 10px;
+  border: solid #fafafa 5px;
+  text-decoration: none;
+  background: none;
+  font-family: "Montserrat", sans-serif;
+  color: #fafafa;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+body #song > .cont #data > #agregar:hover {
+  transition: all .2s ease-in-out;
+  color: #1688e6;
+  border: solid #1688e6 5px;
+}
+
+@media screen and (max-width: 1250px) and (min-width: 1051px) {
+  body #song > .cont #data {
+    width: 400px;
+    height: auto;
+  }
+  body #song > .cont #data > div {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  body #song > .cont #data {
+    width: 350px;
+    height: auto;
+  }
+  body #song > .cont #data > div {
+    width: 150px;
+    height: 150px;
+  }
+  body #song > .cont #data > h2 {
+    font-size: 16px;
+  }
+  body #song > .cont #data > h3 {
+    font-size: 14px;
+  }
+  body #song > .cont #data > #agregar {
+    font-size: 10px;
+  }
+}
+
+body #song > .cont #canvas {
+  margin: 20px 0;
+  color: #fafafa;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  width: 500px;
+  height: 500px;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  position: relative;
+}
+
+body #song > .cont #canvas > .cont {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+}
+
+@media screen and (max-width: 1050px) {
+  body #song > .cont #canvas > .cont {
+    bottom: 10px;
+  }
+}
+
+body #song > .cont #canvas > .cont > .btnPlayer {
+  width: 30px;
+  height: 30px;
+  background: none;
+  margin: 10px;
+  border: 3px #fafafa solid;
+  transition: .2s all ease-in-out;
+  filter: opacity(30%);
+}
+
+@media screen and (max-width: 1050px) {
+  body #song > .cont #canvas > .cont > .btnPlayer {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+body #song > .cont #canvas > .cont > .btnPlayer:hover {
+  border: 3px #1688e6 solid;
+  filter: opacity(100%);
+}
+
+body #song > .cont #canvas > .cont #play {
+  background-image: url("/rec/player/3.svg");
+}
+
+body #song > .cont #canvas > .cont #stop {
+  background-image: url("/rec/player/2.svg");
+}
+
+body #song > .cont #canvas > .cont #tipe {
+  background-image: url("/rec/player/1.svg");
+}
+
+@media screen and (max-width: 1250px) and (min-width: 1051px) {
+  body #song > .cont #canvas {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 1050px) and (min-width: 601px) {
+  body #song > .cont #canvas {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body #song > .cont #canvas {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+body #grupo3D {
+  width: 100%;
+  height: 700px;
+}
+
+.titleSec {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-style: oblique;
+  margin: 100px auto;
+}
+
+.btnMas {
+  padding: 6px 10px;
+  border: solid #141414 5px;
+  text-decoration: none;
+  background: none;
+  font-family: "Montserrat", sans-serif;
+  color: #141414;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.btnMas:hover {
+  transition: all .2s ease-in-out;
+  color: #1688e6;
+  border: solid #1688e6 5px;
+}
+
+.space {
+  width: 100%;
+  height: 100px;
+}
+
+footer {
+  background-color: #fafafa;
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+footer .cont {
+  width: 80%;
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+@media screen and (max-width: 500px) {
+  footer .cont {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+  }
+}
+
+footer .cont .left {
+  width: 200px;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+footer .cont .left > ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+footer .cont .left > ul > li {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 5px 0;
+  color: #141414;
+}
+
+footer .cont .right {
+  width: 200px;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  text-align: right;
+}
+
+@media screen and (max-width: 500px) {
+  footer .cont .right {
+    text-align: left;
+    margin-top: 50px;
+  }
+}
+
+footer .cont .right > h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #141414;
+  margin-bottom: 10px;
+}
+
+footer .cont .right > ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+footer .cont .right > ul > li {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 5px 0;
+}
+
+footer .cont .right > ul > li > a {
+  color: #141414;
+}
+
+footer .cont .right > ul > li > a:hover {
+  color: #1688e6;
+}
+
+footer .feed {
+  position: absolute;
+  width: 200px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: center;
+}
+
+@media screen and (max-width: 900px) {
+  footer .feed {
+    position: relative;
+    top: 50px;
+  }
+}
+
+footer .feed > a {
+  text-align: center;
+  font-family: "Rajdhani", sans-serif;
+  font-style: oblique;
+  font-weight: 500;
+  color: #141414;
+  margin-bottom: 10px;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+footer .feed > a:hover {
+  color: #1688e6;
+}
+
+footer .feed > .cont {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  margin: 10px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: flex-start;
+}
+
+footer .feed > .cont > a {
+  width: 40px;
+  height: 40px;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+footer .feed > .cont > a > div {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: opacity(50%);
+  transition: .2s ease-in-out all;
+}
+
+footer .feed > .cont > a > div:hover {
+  filter: opacity(100%);
+}
+/*# sourceMappingURL=style.css.map */

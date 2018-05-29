@@ -1,0 +1,329 @@
+"[{
+       nombre: 'How',
+       album: 'I Love You',
+       id: 1,
+       destacada: false,
+       genero: 'Indie' 
+    },
+    {
+       nombre: 'Afraid',
+        album: 'I Love You',
+       id: 2,
+       destacada: false,
+       genero: 'Indie' 
+    },
+    {
+       nombre: 'Everybody is Watching me',
+        album: 'I Love You',
+       id: 3,
+       destacada: false,
+       genero: 'Indie' 
+    },
+    {
+       nombre: 'Sweater Weather',
+       album: 'I Love You',
+       id: 4,
+       destacada: false,
+       genero: 'Indie' 
+    },
+    {
+       nombre: 'Let It Go',
+       album: 'I Love You',
+       id: 5,
+       destacada: false,
+       genero: 'Indie' 
+    },
+    {
+       nombre: 'Alleyways',
+        album: 'I Love You',
+       id: 6,
+       destacada: true,
+       genero: 'Indie' 
+    },
+   {
+       nombre: 'W.D.T.W.F.M',
+       album: 'I Love You',
+       id: 7,
+       destacada: false,
+       genero: 'Indie' 
+    },
+    {
+       nombre: 'Fawless',
+       album: 'I Love You',
+       id: 8,
+       destacada: false,
+       genero: 'Indie' 
+    },
+    {
+       nombre: 'Female Robbery',
+       album: 'I Love You',
+       id: 9,
+       destacada: false,
+       genero: 'Indie' 
+    },
+    {
+       nombre: 'Staying Up',
+       album: 'I Love You',
+       id: 10,
+       destacada: false,
+       genero: 'Indie' 
+    },
+    {
+       nombre: 'Float',
+       album: 'I Love You',
+       id: 11,
+       destacada: false,
+       genero: 'Indie' 
+    },
+    {
+       nombre: 'Leaving Tonight',
+       album: 'Im Sorry',
+       id: 12,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Baby Came Home',
+       album: 'Im Sorry',
+       id: 13,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Wires',
+       album: 'Im Sorry',
+       id: 14,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Let It Go',
+       album: 'Thank you',
+       id: 15,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'A Little Death',
+       album: 'Thank you',
+       id: 16,
+       destacada: true,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Weast Coast',
+       album: 'The Love Collection',
+       id: 17,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'No Grey',
+       album: 'The Love Collection',
+       id: 18,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: '$Ting',
+       album: 'The Love Collection',
+       id: 19,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Flowers',
+       album: 'The Neighbourhood',
+       id: 20,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Scary Love',
+       album: 'The Neighbourhood',
+       id: 21,
+       destacada: true,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Nervous',
+       album: 'The Neighbourhood',
+       id: 22,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Void',
+       album: 'The Neighbourhood',
+       id: 23,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Softcore',
+       album: 'The Neighbourhood',
+       id: 24,
+       destacada: true,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Blue',
+       album: 'The Neighbourhood',
+       id: 25,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Sadderdaze',
+       album: 'The Neighbourhood',
+       id: 26,
+       destacada: true,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Revenge',
+       album: 'The Neighbourhood',
+       id: 27,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'You Get Me So High',
+       album: 'The Neighbourhood',
+       id: 28,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Reflections',
+       album: 'The Neighbourhood',
+       id: 29,
+       destacada: true,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Too Serious',
+       album: 'The Neighbourhood',
+       id: 30,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Stuck with Me',
+       album: 'The Neighbourhood',
+       id: 31,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Roll Call',
+       album: 'The Neighbourhood',
+       id: 32,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Noise',
+       album: 'The Neighbourhood',
+       id: 33,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: '24/7',
+       album: 'The Neighbourhood',
+       id: 34,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Heaven',
+       album: 'The Neighbourhood',
+       id: 35,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Compass',
+       album: 'The Neighbourhood',
+       id: 36,
+       destacada: true,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Dust',
+       album: 'The Neighbourhood',
+       id: 37,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Prey',
+       album: 'Wiped Out!',
+       id: 38,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Cry Baby',
+       album: 'Wiped Out!',
+       id: 39,
+       destacada: true,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Wiped Out!',
+       album: 'Wiped Out!',
+       id: 40,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'The Beach',
+       album: 'Wiped Out!',
+       id: 41,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Daddy Issues',
+       album: 'Wiped Out!',
+       id: 42,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Baby Came Home 2',
+       album: 'Wiped Out!',
+       id: 43,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Geetings from Califournia',
+       album: 'Wiped Out!',
+       id: 44,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Ferrari',
+       album: 'Wiped Out!',
+       id: 45,
+       destacada: true,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'Single',
+       album: 'Wiped Out!',
+       id: 46,
+       destacada: false,
+       genero: 'Alternative' 
+    },
+    {
+       nombre: 'RIP 2 My Youth',
+       album: 'Wiped Out!',
+       id: 46,
+       destacada: false,
+       genero: 'Alternative' 
+    }]"

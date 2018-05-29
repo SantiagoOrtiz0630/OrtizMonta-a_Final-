@@ -1,0 +1,113 @@
+<section id="up">
+
+    <div id="slider">
+        <div style="background-image: url('/rec/slide/0.jpg');"></div>
+    </div>
+
+    <header>
+        <div class="logo">
+
+        </div>
+
+        <div class="menu">
+            <a href="/">INICIO</a>
+            <a href="/player/">CANCIONES</a>
+            <a href="/albums/">ALBUMES</a>
+            <a href="/contactos/">CONTACTO</a>
+        </div>
+
+    </header>
+
+     <div class="cont">
+        <a href="#filter">
+            <div id="feedDown"></div>
+        </a>
+    </div>
+</section>
+
+<section id="app">
+    <h2 class="titleSec">BASE DE DATOS</h2>
+
+    <div class="cont">
+        <section id="filter">
+            <h3>GÉNERO</h3>
+            <a href="./?genero=Indie#filter">Indie Rock</a>
+            <a href="./?genero=Alternative#filter">Alternative Rock</a>
+            <a href="./?genero=Electro#filter">Electro Rock</a>
+            <h3>ALBUM</h3>
+            {{#each albumes}}
+            <a href="./?album={{name}}#filter">{{name}}</a>
+            {{/each}}
+            <h3>DESTACADA</h3>
+            <a href="./?destacada=true#player">Más buscadas</a>
+        </section>
+        <section id="music">
+            <ul id="listMusic">
+                {{#each musica}}
+                <li class="songLink">
+                    <a href="/song/{{id}}#song">
+                        <div style="background-image: url('/rec/songs/album/{{album}}.jpg');"></div>
+                        <div class="cont">
+                            <h2> {{nombre}} </h2>
+                        </div>
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </section>
+    </div>
+
+    <div class="space"></div>
+</section>
+
+
+<footer>
+    <div class="space"></div>
+    <div class="cont">
+        <div class="left">
+            <ul>
+                <li>Estados Unidos, NY</li>
+                <li>The Neighbourhood - The NBHD</li>
+            </ul>
+        </div>
+        <div class="right">
+            <h2>Enlaces</h2>
+            <ul>
+                <li>
+                    <a href="/">Inicio</a>
+                </li>
+                <li>
+                    <a href="/player/">Canciones</a>
+                </li>
+                <li>
+                    <a href="/albums/">Albumes</a>
+                </li>
+                <li>
+                    <a href="#">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="feed">
+        <a href="https://thenbhd.com/">www.thenbhd.com</a>
+        <div class="cont">
+            <a href="https://www.facebook.com/TheNeighbourhood/">
+                <div style="background-image: url('rec/feed/1.svg')"></div>
+            </a>
+            <a href="https://www.youtube.com/user/TheNeighbourhoodVEVO">
+                <div style="background-image: url('rec/feed/2.svg')"></div>
+            </a>
+            <a href="https://www.instagram.com/thenbhd/">
+                <div style="background-image: url('rec/feed/3.svg')"></div>
+            </a>
+        </div>
+    </div>
+    <div class="space"></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script src="https://unpkg.com/sweetalert2@7.17.0/dist/sweetalert2.all.js"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+<script language="javascript" type="text/javascript" src="/js/libs/p5.sound.js"></script>
+<script language="javascript" type="text/javascript" src="/js/player.js"></script>
