@@ -161,12 +161,12 @@ function init() {
 	THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
 
 	new THREE.MTLLoader()
-	.setPath( '/Model/' )
+	.setPath( '/models/' )
 	.load( 'holi.mtl', function ( materials ) {
 		materials.preload();
 		new THREE.OBJLoader()
 			.setMaterials( materials )
-			.setPath( '/Model/' )
+			.setPath( '/models/' )
 			.load( 'Logo.obj', function ( object ) {
 				obj = object;
 				obj.rotation.x = 4.9;
