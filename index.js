@@ -6,8 +6,6 @@ const path = require('path');
 const hbs = require('express-handlebars');
 const morgan = require('morgan');
 
-
-
 var app = express(),
     db;
 
@@ -17,7 +15,7 @@ var app = express(),
 app.use(express.static('public'));
 
 //mongoDB
-
+var b;
 
 // Conectarse a Base de Datos
 MongoClient.connect('mongodb+srv://tallerweb-xhkvw.mongodb.net/test?retryWrites=true', {
