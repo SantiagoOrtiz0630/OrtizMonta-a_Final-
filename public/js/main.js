@@ -169,7 +169,6 @@ function init() {
 			.setPath( '/Model/' )
 			.load( 'Logo.obj', function ( object ) {
 				obj = object;
-				obj.position.y += 10;
 				obj.rotation.x = 4.9;
 				scene.add( obj );
 			}, onProgress, onError );
