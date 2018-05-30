@@ -1,4 +1,3 @@
-
 //discografia
 
 hoverAlbum();
@@ -130,79 +129,83 @@ function sub() {
 var camera, scene, renderer;
 
 var obj;
+var mouse = new THREE.Vector2();
 
 var contenedor = document.getElementById("grupo3D");
 
 init();
+animate();
 
 function init() {
 
-	camera = new THREE.PerspectiveCamera(45, contenedor.offsetWidth / contenedor.offsetHeight, 1, 2000);
-	camera.position.z = 300;
+    camera = new THREE.PerspectiveCamera(45, contenedor.offsetWidth / contenedor.offsetHeight, 1, 2000);
+    camera.position.z = 300;
 
-	scene = new THREE.Scene();
+    //controls
+    var controls = new THREE.OrbitControls( camera );
+    controls.enableZoom = false;
+    controls.enablePan = true;
+    controls.minPolarAngle = Math.PI / 4;
+    controls.maxPolarAngle = Math.PI / 1.5;
 
-	var ambientLight = new THREE.AmbientLight(0x168e6, 0.3);
-	scene.add(ambientLight);
-	var pointLight = new THREE.PointLight(0xffffff, 0.7);
-	camera.add(pointLight);
-	scene.add(camera);
+    scene = new THREE.Scene();
 
-	// model
-	var onProgress = function (xhr) {
-		if (xhr.lengthComputable) {
-			var percentComplete = xhr.loaded / xhr.total * 100;
-			console.log(Math.round(percentComplete, 2) + '% downloaded');
-		}
-	};
+    var ambientLight = new THREE.AmbientLight(0x168e6, 0.3);
+    scene.add(ambientLight);
+    var pointLight = new THREE.PointLight(0xffffff, 0.7);
+    camera.add(pointLight);
+    scene.add(camera);
 
-	var onError = function ( xhr ) { };
+    // model
+    var onProgress = function (xhr) {
+        if (xhr.lengthComputable) {
+            var percentComplete = xhr.loaded / xhr.total * 100;
+            console.log(Math.round(percentComplete, 2) + '% downloaded');
+        }
+    };
 
-	THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
+    var onError = function (xhr) {};
 
-	new THREE.MTLLoader()
-	.setPath( '/models/' )
-	.load( 'holi.mtl', function ( materials ) {
-		materials.preload();
-		new THREE.OBJLoader()
-			.setMaterials( materials )
-			.setPath( '/models/' )
-			.load( 'Logo.obj', function ( object ) {
-				obj = object;
-				obj.rotation.x = 4.9;
-				scene.add( obj );
-			}, onProgress, onError );
-	} );
+    THREE.Loader.Handlers.add(/\.dds$/i, new THREE.DDSLoader());
 
-	renderer = new THREE.WebGLRenderer({ antialias: true });
-	renderer.setSize(contenedor.offsetWidth, contenedor.offsetHeight);
-	contenedor.appendChild(renderer.domElement);
+    new THREE.MTLLoader()
+        .setPath('/models/')
+        .load('holi.mtl', function (materials) {
+            materials.preload();
+            new THREE.OBJLoader()
+                .setMaterials(materials)
+                .setPath('/models/')
+                .load('Logo.obj', function (object) {
+                    obj = object;
+                    obj.rotation.x = 4.9;
+                    scene.add(obj);
+                }, onProgress, onError);
+        });
 
-	window.addEventListener('resize', cambioDeTamano, false);
-    contenedor.addEventListener( 'mousemove', onDocumentMouseMove, false );
-	animate();
-}
+    renderer = new THREE.WebGLRenderer({
+        antialias: true
+    });
+    renderer.setSize(contenedor.offsetWidth, contenedor.offsetHeight);
+    contenedor.appendChild(renderer.domElement);
 
-
-function onDocumentMouseMove( event ) {
-	mouseX = ( event.clientX - contenedor.offsetWidth  ) / 2;
-	mouseY = ( event.clientY - contenedor.offsetHeight ) / 2;
+    window.addEventListener('resize', cambioDeTamano, false);
 }
 
 function animate() {
 
-	requestAnimationFrame(animate);
-	obj.rotation.z += 0.001;
-	obj.rotation.x += 0.001;
-	renderer.render(scene, camera);
-
+    requestAnimationFrame(animate);
+    if (obj != null) {
+        obj.rotation.z += 0.001;
+    }
+    //obj.rotation.y += 0.0005;
+    renderer.render(scene, camera);
 }
 
 function cambioDeTamano() {
 
-	camera.aspect = contenedor.offsetWidth / contenedor.offsetHeight;
-	camera.updateProjectionMatrix();
-	renderer.setSize(contenedor.offsetWidth, contenedor.offsetHeight);
+    camera.aspect = contenedor.offsetWidth / contenedor.offsetHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(contenedor.offsetWidth, contenedor.offsetHeight);
 }
 
 //scrollReveral
