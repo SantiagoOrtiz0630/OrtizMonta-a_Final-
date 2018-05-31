@@ -141,7 +141,7 @@ animate();
 
 function init() {
 
-    camera = new THREE.PerspectiveCamera(45, contenedor.offsetWidth / contenedor.offsetHeight, 1, 2000);
+    camera = new THREE.PerspectiveCamera(45, contenedor.clientWidth / contenedor.clientHeight, 1, 2000);
     camera.position.z = 300;
 
     //controls
@@ -190,11 +190,11 @@ function init() {
     renderer = new THREE.WebGLRenderer({
         antialias: true
     });
-    renderer.setSize(contenedor.offsetWidth, contenedor.offsetHeight);
+    renderer.setSize(contenedor.clientWidth, contenedor.clientHeight);
     contenedor.appendChild(renderer.domElement);
 
-    contenedor.addEventListener('resize', cambioDeTamano, false);
-    contenedor.addEventListener( 'mousemove', onDocumentMouseMove, false );
+    window.addEventListener('resize', cambioDeTamano, false);
+    window.addEventListener( 'mousemove', onDocumentMouseMove, false );
 }
 
 function animate() {
@@ -210,15 +210,14 @@ function animate() {
 
 function onDocumentMouseMove( event ) {
     event.preventDefault();
-    mouse.x = ( event.clientX / contenedor.offsetWidth ) * 2 - 1;
-    mouse.y = - ( event.clientY / contenedor.offsetWidth ) * 2 + 1;
+    mouse.x = ( event.clientX / contenedor.clientWidth ) * 2 - 1;
+    mouse.y = - ( event.clientY / contenedor.clientHeight ) * 2 + 1;
 }
 
 function cambioDeTamano() {
-
-    camera.aspect = contenedor.offsetWidth / contenedor.offsetHeight;
+    camera.aspect = contenedor.clientWidth / contenedor.clientHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(contenedor.offsetWidth, contenedor.offsetHeight);
+    renderer.setSize(contenedor.clientWidth, contenedor.clientHeight);
 }
 
 function render() {
