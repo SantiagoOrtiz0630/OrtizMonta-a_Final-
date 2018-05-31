@@ -73,20 +73,28 @@ app.get('/', (req, res) => {
 });
 
 app.get('/song/:id', (req, res) => {
+    var idd = parseInt(req.params.id);
 
-    if (req.params.id == 0 || req.params.id >= 47) {
+    if (idd == 0 || idd >= 47) {
         res.render('error', {
             title: 'No se ha encontrado la Canción'
         });
     }
 
-    var idd = parseInt(req.params.id);
 
     var prod = db.collection('canciones').find({
         id: idd
     }).toArray((err, result) => {
-        res.render('cancion', {
-            song: result[0]
+        var list = db.collection('list').find({
+            id: idd
+        }).toArray((err, resultList) => {
+            //
+            var exist = (!(resultList[0] == undefined) && (result[0].nombre == resultList[0].nombre));
+            res.render('cancion', {
+                song: result[0],
+                form: exist
+            });
+            //
         });
     });
 });
@@ -106,7 +114,9 @@ app.post('/list/remove', (req, res) => {
 
     var idd = parseInt(req.body.id);
 
-    db.collection('list').deleteOne({id: idd});
+    db.collection('list').deleteOne({
+        id: idd
+    });
 
     res.redirect('/list');
 });

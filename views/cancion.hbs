@@ -36,14 +36,17 @@
             <div style="background-image: url('/rec/songs/album/{{song.album}}.jpg');"></div>
             <h3>Genero: {{song.genero}}</h3>
             <h3>Album: {{song.album}}</h3>
-            <form method="post" action="/list/add">
-                <input type="text" name="id" value="{{song.id}}" style="display: none;">
-                <button id="agregar">AGREGAR A LISTA</button>
-            </form>
+            {{#if form}}
             <form method="post" action="/list/remove">
                 <input type="text" name="id" value="{{song.id}}" style="display: none;">
                 <button name="{{song.id}}" id="borrar">REMOVER DE LISTA</button>
             </form>
+            {{else}}
+            <form method="post" action="/list/add">
+                <input type="text" name="id" value="{{song.id}}" style="display: none;">
+                <button id="agregar">AGREGAR A LISTA</button>
+            </form>
+            {{/if}}
         </article>
 
         <article id="canvas">
