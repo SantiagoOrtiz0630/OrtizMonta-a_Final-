@@ -50,6 +50,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 //
 
+var b;
+
 //rutas
 app.get('/', (req, res) => {
 
