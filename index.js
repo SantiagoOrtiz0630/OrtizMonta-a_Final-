@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient,
-    //ObjectID = require('mongodb').ObjectID,
+    ObjectID = require('mongodb').ObjectID,
     express = require('express'),
     engines = require('consolidate');
 const path = require('path');
@@ -9,13 +9,18 @@ const morgan = require('morgan');
 var app = express(),
     db;
 
-//middlewares
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+//
 
 //app.use(morgan('dev'));
 app.use(express.static('public'));
 
 //mongoDB
-var b;
 
 // Conectarse a Base de Datos
 MongoClient.connect('mongodb+srv://tallerweb-xhkvw.mongodb.net/test?retryWrites=true', {
@@ -82,7 +87,39 @@ app.get('/song/:id', (req, res) => {
             song: result[0]
         });
     });
+});
 
+app.get('/list', (req, res) => {
+
+    var list = db.collection('list').find();
+
+    list.toArray((err, result) => {
+        res.render('list', {
+            musica: result
+        });
+    });
+});
+
+app.post('/list/remove', (req, res) => {
+
+    var idd = parseInt(req.body.id);
+
+    db.collection('list').deleteOne({id: idd});
+
+    res.redirect('/list');
+});
+
+app.post('/list/add', (req, res) => {
+
+    var idd = parseInt(req.body.id);
+
+    var songReal = db.collection('canciones').find({
+        id: idd
+    }).toArray((err, result) => {
+
+        db.collection('list').save(result[0]);
+        res.redirect('/list');
+    });;
 });
 
 app.get('/player/', (req, res) => {
@@ -116,17 +153,6 @@ app.get('/player/', (req, res) => {
 });
 
 //post
-
-app.post('/song/:id', (req, res) => {
-
-    //codigo de agregar
-
-    var i = parseInt(req.param.id);
-
-    if (i == 0 || i >= 47) {
-        res.redirect('/song/' + i + '');
-    }
-});
 
 app.get('/*', (req, res) => {
     res.render('error', {

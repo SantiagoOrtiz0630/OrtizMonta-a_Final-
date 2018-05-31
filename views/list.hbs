@@ -18,45 +18,26 @@
     </header>
 
     <div class="cont">
-        <a href="#canvas">
+        <a href="#listMusic">
             <div id="feedDown"></div>
         </a>
     </div>
-
 </section>
 
-<section id="song">
-
-    <div class="space"></div>
-
-    <div class="cont">
-
-        <article id="data">
-            <h2>Nombre: {{song.nombre}}</h2>
-            <div style="background-image: url('/rec/songs/album/{{song.album}}.jpg');"></div>
-            <h3>Genero: {{song.genero}}</h3>
-            <h3>Album: {{song.album}}</h3>
-            <form method="post" action="/list/add">
-                <input type="text" name="id" value="{{song.id}}" style="display: none;">
-                <button id="agregar">AGREGAR A LISTA</button>
-            </form>
-            <form method="post" action="/list/remove">
-                <input type="text" name="id" value="{{song.id}}" style="display: none;">
-                <button name="{{song.id}}" id="borrar">REMOVER DE LISTA</button>
-            </form>
-        </article>
-
-        <article id="canvas">
-            <div class="cont">
-                <button class="btnPlayer" id="play"></button>
-                <button class="btnPlayer" id="stop"></button>
-                <button class="btnPlayer" id="tipe"></button>
-            </div>
-        </article>
-    </div>
-
-    <div class="space"></div>
-
+<section id="list">
+    <h2 class="titleSec">LISTA DE REPRODUCCIÓN</h2>
+    <ul id="listMusic">
+        {{#each musica}}
+        <li class="songLink">
+            <a href="/song/{{id}}#song">
+                <div style="background-image: url('/rec/songs/album/{{album}}.jpg');"></div>
+                <div class="cont">
+                    <h2> {{nombre}} </h2>
+                </div>
+            </a>
+        </li>
+        {{/each}}
+    </ul>
 </section>
 
 <footer>
@@ -104,10 +85,3 @@
 <script src="https://unpkg.com/sweetalert2@7.17.0/dist/sweetalert2.all.js"></script>
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
-<script language="javascript" type="text/javascript" src="/js/libs/p5.sound.js"></script>
-
-<script>
-    var idSonido = {{song.id}};
-</script>
-
-<script language="javascript" type="text/javascript" src="/js/song.js"></script>

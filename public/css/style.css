@@ -99,7 +99,7 @@ body #up header .menu {
   order: 0;
   flex: 0 1 auto;
   align-self: auto;
-  width: 40%;
+  width: 30%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -310,8 +310,8 @@ body #resumen > .cont #listMusic {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: flex-start;
+  justify-content: center;
+  align-content: center;
   align-items: flex-start;
   overflow: hidden;
 }
@@ -661,8 +661,8 @@ body #app > .cont #music #listMusic {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: space-between;
+  justify-content: center;
+  align-content: center;
   align-items: flex-start;
   overflow: auto;
 }
@@ -804,6 +804,11 @@ body #song > .cont #data:hover #agregar {
   border-color: #141414;
 }
 
+body #song > .cont #data:hover #borrar {
+  color: #141414;
+  border-color: #141414;
+}
+
 body #song > .cont #data > div {
   order: 0;
   flex: 0 1 auto;
@@ -838,7 +843,7 @@ body #song > .cont #data > h3 {
   align-self: auto;
 }
 
-body #song > .cont #data > #agregar {
+body #song > .cont #data #agregar {
   order: 0;
   margin: 10px 0;
   flex: 0 1 auto;
@@ -854,7 +859,29 @@ body #song > .cont #data > #agregar {
   font-size: 12px;
 }
 
-body #song > .cont #data > #agregar:hover {
+body #song > .cont #data #agregar:hover {
+  transition: all .2s ease-in-out;
+  color: #1688e6;
+  border: solid #1688e6 5px;
+}
+
+body #song > .cont #data #borrar {
+  order: 0;
+  margin: 10px 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  padding: 6px 10px;
+  border: solid #fafafa 5px;
+  text-decoration: none;
+  background: none;
+  font-family: "Montserrat", sans-serif;
+  color: #fafafa;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+body #song > .cont #data #borrar:hover {
   transition: all .2s ease-in-out;
   color: #1688e6;
   border: solid #1688e6 5px;
@@ -887,6 +914,9 @@ body #song > .cont #data > #agregar:hover {
     font-size: 14px;
   }
   body #song > .cont #data > #agregar {
+    font-size: 10px;
+  }
+  body #song > .cont #data > #borrar {
     font-size: 10px;
   }
 }
@@ -984,6 +1014,119 @@ body #song > .cont #canvas > .cont #tipe {
 body #grupo3D {
   width: 100%;
   height: 700px;
+}
+
+body #list {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  background-color: #141414;
+}
+
+body #list > .titleSec {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  color: #fafafa;
+}
+
+body #list #listMusic {
+  margin-bottom: 30px;
+  width: 80%;
+  height: auto;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+  text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+  body #list #listMusic {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+  }
+}
+
+body #list #listMusic > .songLink {
+  width: 180px;
+  height: auto;
+  margin: 10px;
+  background-color: #fafafa;
+  transition: all ease-in-out .3s;
+}
+
+body #list #listMusic > .songLink > a {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  text-decoration: none;
+}
+
+body #list #listMusic > .songLink > a > div {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #list #listMusic > .songLink > a > .cont {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+body #list #listMusic > .songLink > a > .cont > h2 {
+  color: #2d2d2d;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  font-style: oblique;
+  transition: all ease-in-out .3s;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+body #list #listMusic > .songLink:hover {
+  background-color: #1688e6;
+  -webkit-box-shadow: 0px 0px 10px 1px #1688e6;
+  -moz-box-shadow: 0px 0px 10px 1px #1688e6;
+  box-shadow: 0px 0px 10px 1px #1688e6;
+}
+
+body #list #listMusic > .songLink:hover > a > .cont > h2 {
+  color: #fafafa;
 }
 
 .titleSec {

@@ -127,11 +127,14 @@ function sub() {
 //3D
 
 var camera, scene, renderer;
+var raycaster;
 
 var obj;
-var mouse = new THREE.Vector2();
+var mouse = new THREE.Vector2(),
+    INTERSECTED;
 
 var contenedor = document.getElementById("grupo3D");
+
 
 init();
 animate();
@@ -142,9 +145,9 @@ function init() {
     camera.position.z = 300;
 
     //controls
-    var controls = new THREE.OrbitControls( camera );
+    var controls = new THREE.OrbitControls(camera);
     controls.enableZoom = false;
-    controls.enablePan = true;
+    controls.enablePan = false;
     controls.minPolarAngle = Math.PI / 4;
     controls.maxPolarAngle = Math.PI / 1.5;
 
@@ -152,7 +155,7 @@ function init() {
 
     var ambientLight = new THREE.AmbientLight(0x168e6, 0.3);
     scene.add(ambientLight);
-    var pointLight = new THREE.PointLight(0xffffff, 0.7);
+    var pointLight = new THREE.PointLight(0xfffffff, 0.7);
     camera.add(pointLight);
     scene.add(camera);
 
@@ -182,13 +185,16 @@ function init() {
                 }, onProgress, onError);
         });
 
+    raycaster = new THREE.Raycaster();
+
     renderer = new THREE.WebGLRenderer({
         antialias: true
     });
     renderer.setSize(contenedor.offsetWidth, contenedor.offsetHeight);
     contenedor.appendChild(renderer.domElement);
 
-    window.addEventListener('resize', cambioDeTamano, false);
+    contenedor.addEventListener('resize', cambioDeTamano, false);
+    contenedor.addEventListener( 'mousemove', onDocumentMouseMove, false );
 }
 
 function animate() {
@@ -198,7 +204,14 @@ function animate() {
         obj.rotation.z += 0.001;
     }
     //obj.rotation.y += 0.0005;
+    render();
     renderer.render(scene, camera);
+}
+
+function onDocumentMouseMove( event ) {
+    event.preventDefault();
+    mouse.x = ( event.clientX / contenedor.offsetWidth ) * 2 - 1;
+    mouse.y = - ( event.clientY / contenedor.offsetWidth ) * 2 + 1;
 }
 
 function cambioDeTamano() {
@@ -206,6 +219,24 @@ function cambioDeTamano() {
     camera.aspect = contenedor.offsetWidth / contenedor.offsetHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(contenedor.offsetWidth, contenedor.offsetHeight);
+}
+
+function render() {
+    // find intersections
+    raycaster.setFromCamera(mouse, camera);
+    var intersects = raycaster.intersectObjects(obj);
+    if (intersects.length > 0) {
+        if (INTERSECTED != intersects[0].object) {
+            if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+            INTERSECTED = intersects[0].object;
+            INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
+            INTERSECTED.material.emissive.setHex(0xff0000);
+        }
+    } else {
+        if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+        INTERSECTED = null;
+    }
+    renderer.render(scene, camera);
 }
 
 //scrollReveral

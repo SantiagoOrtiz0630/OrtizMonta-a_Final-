@@ -1,4 +1,3 @@
-
 //canvas
 
 var canvas = document.getElementById("canvas");
@@ -155,10 +154,6 @@ var btnTipe = document.getElementById('tipe');
 btnTipe.addEventListener('click', myp5.changeTipe);
 
 //canvas
-
-var buttonAgregar = document.getElementById('agregar');
-
-
 
 //scrollReveral
 window.sr = ScrollReveal({
