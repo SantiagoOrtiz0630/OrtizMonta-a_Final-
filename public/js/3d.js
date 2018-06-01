@@ -1,4 +1,4 @@
-// Retorna un número aleatorio entre min (incluido) y max (excluido)
+
 function getRandom(min, max) {
     return Math.random() * (max - min) + min;
 }
@@ -288,3 +288,5 @@ function render() {
     }
     renderer.render(scene, camera);
 }
+
+var holi;
