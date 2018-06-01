@@ -65,12 +65,12 @@ function mostrarTemp(i) {
 
     temp.style.opacity = '1';
 
-   // scrollAnimation.play();
+    // scrollAnimation.play();
 }
 
 function ocultarTemp() {
     temp.style.opacity = '0';
-   // scrollAnimationR.play();
+    // scrollAnimationR.play();
 }
 //3D
 
@@ -157,13 +157,17 @@ function init() {
         var ii = parseInt(r);
         vertex = vertices[ii];
         vertex.toArray(positions, ii * 3);
-        if(i < 10){
-        color.setHSL(0.55, 0.8, 0.5);
-        }else{
+        if (i < 10) {
+            color.setHSL(0.55, 0.8, 0.5);
+        } else {
             color.setHSL(0.55, 0.5, 0.8);
         }
+        if (i < 10) {
+            sizes[ii] = PARTICLE_SIZE;
+        } else {
+            sizes[ii] = 15;
+        }
         color.toArray(colors, ii * 3);
-        sizes[ii] = PARTICLE_SIZE;
         ind[ii] = i;
     }
 
@@ -237,9 +241,9 @@ function animate() {
     if (rot) {
         if (obj != null) {
             obj.rotation.z += 0.001;
-            particles.rotation.z += 0.002;
-            particles.rotation.y += 0.002;
-            particles.rotation.x += 0.002;
+            particles.rotation.z += 0.0015;
+            particles.rotation.y += 0.0015;
+            particles.rotation.x += 0.0015;
         }
     }
     render();
@@ -276,9 +280,9 @@ function render() {
             if (rot) {
                 rot = false;
             }
-            if(attributes.ind.array[INTERSECTED] < 10){
-            mostrarTemp(attributes.ind.array[INTERSECTED]);
-        }
+            if (attributes.ind.array[INTERSECTED] < 10) {
+                mostrarTemp(attributes.ind.array[INTERSECTED]);
+            }
         }
     } else if (INTERSECTED !== null) { //releassed
         ocultarTemp();
