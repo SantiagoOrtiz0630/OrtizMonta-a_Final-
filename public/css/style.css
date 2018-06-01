@@ -74,8 +74,8 @@ body #up #grupo3D {
 
 body #up #grupo3D #temp {
   position: absolute;
-  width: 300px;
-  height: 100px;
+  width: auto;
+  height: auto;
   bottom: 0;
   left: 0;
   background-color: rgba(20, 20, 20, 0.6);

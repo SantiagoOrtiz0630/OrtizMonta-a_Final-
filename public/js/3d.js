@@ -6,35 +6,38 @@ function getRandom(min, max) {
 var temp = document.getElementById('temp');
 
 var db = [{
-    titulo: '1',
-    data: 'Datos'
+    titulo: 'SWEATER WEATHER',
+    data: 'Canción más escuchada: 242 Millones en Youtube'
 }, {
-    titulo: '2',
-    data: 'Datos'
+    titulo: 'THE NEIGHBOURHOOD',
+    data: 'Su ultimo album, lleva el nombre de la Banda'
 }, {
-    titulo: '3',
-    data: 'Datos'
+    titulo: 'SCARY LOVE',
+    data: 'Canción más escuchada del ultimo album: The Neighbourhood'
 }, {
-    titulo: '4',
-    data: 'Datos'
+    titulo: 'THE NBHD',
+    data: 'La abreviatura de su nombre'
 }, {
-    titulo: '5',
-    data: 'Datos'
+    titulo: 'GÉNEROS',
+    data: 'Electro Rock, Indie Rock, Alternative Rock, Rap, entre otros...'
 }, {
-    titulo: '6',
-    data: 'Datos'
+    titulo: 'ORIGEN',
+    data: 'Newbury Park, California, Estados Unidos, 2011'
 }, {
-    titulo: '7',
-    data: 'Datos'
+    titulo: 'FEMALE ROBBERY',
+    data: 'Primer video Musical'
 }, {
-    titulo: '8',
-    data: 'Datos'
+    titulo: 'JESSE RUTHERFORD',
+    data: 'Vocalista '
 }, {
-    titulo: '9',
-    data: 'Datos'
+    titulo: "I'M SORRY",
+    data: 'Su primer album'
 }, {
-    titulo: '9',
-    data: 'Datos'
+    titulo: 'HONEST',
+    data: 'Canción que fue banda sonora de la pelicula THE AMAZING SPIDER-MAN 2'
+}, {
+    titulo: 'SWEATER WEATHER',
+    data: 'Canción más escuchada: 242 Millones en Youtube'
 }];
 
 var scrollAnimation = anime({
@@ -43,9 +46,9 @@ var scrollAnimation = anime({
     delay: 200,
     duration: 1000,
     autoplay: false
- });
+});
 
-  var scrollAnimationR = anime({
+var scrollAnimationR = anime({
     targets: temp,
     translateX: 250,
     delay: 200,
@@ -73,7 +76,7 @@ function ocultarTemp() {
 
 var renderer, scene, camera;
 var particles, uniforms;
-var PARTICLE_SIZE = 20;
+var PARTICLE_SIZE = 25;
 var raycaster, intersects;
 var mouse = new THREE.Vector2(),
     INTERSECTED;
@@ -107,11 +110,11 @@ function init() {
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x141414);
-    scene.fog = new THREE.FogExp2( 0x000000, 0.0013);
+    scene.fog = new THREE.FogExp2(0x000000, 0.0013);
 
     var ambientLight = new THREE.AmbientLight(0x168e6, 0.3);
     scene.add(ambientLight);
-    var pointLight = new THREE.PointLight(0xfffffff, 0.7);
+    var pointLight = new THREE.PointLight(0xfffffff, 0.5);
     camera.add(pointLight);
     scene.add(camera);
 
@@ -120,18 +123,23 @@ function init() {
     var g = new THREE.BufferGeometry();
     var v = [];
     var s = new THREE.TextureLoader().load("/models/text/circle.png")
-    for ( var i = 0; i < 2000; i ++ ) {
+    for (var i = 0; i < 2000; i++) {
         var x = getRandom(-700, 700);
         var y = getRandom(-700, 700);
         var z = getRandom(-700, 700);
-        v.push( x, y, z );
+        v.push(x, y, z);
     }
-    g.addAttribute( 'position', new THREE.Float32BufferAttribute( v, 3 ) );
-  var  m = new THREE.PointsMaterial( { size: 10, sizeAttenuation: false, map: s, alphaTest: 0.9, transparent: true } );
+    g.addAttribute('position', new THREE.Float32BufferAttribute(v, 3));
+    var m = new THREE.PointsMaterial({
+        size: 10,
+        sizeAttenuation: false,
+        map: s,
+        alphaTest: 0.9,
+        transparent: true
+    });
     m.color.setHSL(0.55, 0.1, 0.6);
-    var p = new THREE.Points( g, m );
-    scene.add( p );
-
+    var p = new THREE.Points(g, m);
+    scene.add(p);
 
     //
     var geometry1 = new THREE.SphereGeometry(100, 32, 32);
@@ -167,7 +175,7 @@ function init() {
                 value: new THREE.Color(0xffffff)
             },
             texture: {
-                value: new THREE.TextureLoader().load("/models/text/circle.png")
+                value: new THREE.TextureLoader().load("/models/text/becircle.png")
             }
         },
         vertexShader: document.getElementById('vertexshader').textContent,
@@ -225,7 +233,9 @@ function animate() {
     if (rot) {
         if (obj != null) {
             obj.rotation.z += 0.001;
-            particles.rotation.y += 0.001;
+            particles.rotation.z += 0.002;
+            particles.rotation.y += 0.002;
+            particles.rotation.x += 0.002;
         }
     }
     render();
@@ -256,9 +266,9 @@ function render() {
 
             attributes.size.array[INTERSECTED] = PARTICLE_SIZE;
             INTERSECTED = intersects[0].index;
-            attributes.size.array[INTERSECTED] = PARTICLE_SIZE+10;
+            attributes.size.array[INTERSECTED] = PARTICLE_SIZE + 10;
             attributes.size.needsUpdate = true;
-            console.log(attributes.ind.array[INTERSECTED]);
+
             if (rot) {
                 rot = false;
             }
