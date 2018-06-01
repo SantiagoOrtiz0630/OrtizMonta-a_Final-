@@ -72,7 +72,6 @@ function ocultarTemp() {
     temp.style.opacity = '0';
     // scrollAnimationR.play();
 }
-//3D
 
 var renderer, scene, camera;
 var particles, uniforms;
