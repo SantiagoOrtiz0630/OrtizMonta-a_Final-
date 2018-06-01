@@ -2,8 +2,6 @@ function getRandom(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-var temp = document.getElementById('temp');
-
 var db = [{
     titulo: 'SWEATER WEATHER',
     data: 'Canción más escuchada: 242 Millones en Youtube'
@@ -39,6 +37,41 @@ var db = [{
     data: 'Canción más escuchada: 242 Millones en Youtube'
 }];
 
+var main = document.getElementById("grupo3D");
+var temp = document.getElementById("temp");
+
+function mostrarTemp(i) {
+    ocultarTemp();
+
+    var t = document.createElement('div');
+    t.setAttribute('id', 'temp');
+
+    var c = document.createElement('div');
+    c.setAttribute('class', 'cont');
+
+    var h1 = document.createElement('h1');
+    h1.innerHTML = db[i].titulo;
+
+    var h3 = document.createElement('h3');
+    h3.innerHTML = db[i].data;
+
+    c.appendChild(h1);
+    c.appendChild(h3);
+
+    t.appendChild(c);
+    main.appendChild(t);
+
+}
+
+function ocultarTemp() {
+    if (document.getElementById("temp")) {
+        document.getElementById("temp").remove();
+    }
+}
+
+ocultarTemp();
+
+/*
 function mostrarTemp(i) {
     ocultarTemp();
 
@@ -50,7 +83,7 @@ function mostrarTemp(i) {
 
 function ocultarTemp() {
     temp.style.opacity = '0';
-}
+}*/
 
 var renderer, scene, camera;
 var particles, uniforms;
