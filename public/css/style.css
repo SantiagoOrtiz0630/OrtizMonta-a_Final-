@@ -5,6 +5,7 @@
   text-decoration: none;
   list-style: none;
   font-style: normal;
+  border-radius: 0;
 }
 
 #error {

@@ -124,6 +124,11 @@ function sub() {
 
 //info
 
+// Retorna un número aleatorio entre min (incluido) y max (excluido)
+function getRandom(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
 //3D
 
 var camera, scene, renderer;
@@ -135,13 +140,15 @@ var mouse = new THREE.Vector2(),
 
 var contenedor = document.getElementById("grupo3D");
 
+var particles;
+
 
 init();
 animate();
 
 function init() {
 
-    camera = new THREE.PerspectiveCamera(45, contenedor.clientWidth / contenedor.clientHeight, 1, 2000);
+    camera = new THREE.PerspectiveCamera(55, contenedor.clientWidth / contenedor.clientHeight, 1, 2000);
     camera.position.z = 300;
 
     //controls
@@ -152,12 +159,44 @@ function init() {
     controls.maxPolarAngle = Math.PI / 1.5;
 
     scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x141414);
 
     var ambientLight = new THREE.AmbientLight(0x168e6, 0.3);
     scene.add(ambientLight);
     var pointLight = new THREE.PointLight(0xfffffff, 0.7);
     camera.add(pointLight);
     scene.add(camera);
+
+    //
+    var geometry = new THREE.BufferGeometry();
+    var vertices = [];
+
+    var sprite = new THREE.TextureLoader().load('/models/text/circle.png');
+
+    for (var i = 0; i < 10; i++) {
+        /*  var x = 300 * Math.random() - 150;
+          var y = 300 * Math.random() - 150;
+          var z = 300 * Math.random() - 150;*/
+        var x = getRandom(-50, 50);
+        var y = getRandom(-50, 50);
+        var z = getRandom(-50, 50);
+        vertices.push(x, y, z);
+    }
+
+    geometry.addAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+    material = new THREE.PointsMaterial({
+        size: 25,
+        sizeAttenuation: false,
+        map: sprite,
+        alphaTest: 0.5,
+        transparent: true
+    });
+    material.color.setHSL(0.6, 0.5, 0.5);
+
+    particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+    //
 
     // model
     var onProgress = function (xhr) {
@@ -194,24 +233,27 @@ function init() {
     contenedor.appendChild(renderer.domElement);
 
     window.addEventListener('resize', cambioDeTamano, false);
-    window.addEventListener( 'mousemove', onDocumentMouseMove, false );
+    window.addEventListener('mousemove', onDocumentMouseMove, false);
 }
 
 function animate() {
 
     requestAnimationFrame(animate);
+
     if (obj != null) {
         obj.rotation.z += 0.001;
     }
-    //obj.rotation.y += 0.0005;
+
     render();
     renderer.render(scene, camera);
+
 }
 
-function onDocumentMouseMove( event ) {
+function onDocumentMouseMove(event) {
     event.preventDefault();
-    mouse.x = ( event.clientX / contenedor.clientWidth ) * 2 - 1;
-    mouse.y = - ( event.clientY / contenedor.clientHeight ) * 2 + 1;
+
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 }
 
 function cambioDeTamano() {
@@ -221,9 +263,14 @@ function cambioDeTamano() {
 }
 
 function render() {
+
+
+
     // find intersections
+
+
     raycaster.setFromCamera(mouse, camera);
-    var intersects = raycaster.intersectObjects(obj);
+    var intersects = raycaster.intersectObjects(scene.children);
     if (intersects.length > 0) {
         if (INTERSECTED != intersects[0].object) {
             if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
