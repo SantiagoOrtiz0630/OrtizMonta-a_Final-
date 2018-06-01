@@ -1,4 +1,3 @@
-
 function getRandom(min, max) {
     return Math.random() * (max - min) + min;
 }
@@ -40,23 +39,6 @@ var db = [{
     data: 'Canción más escuchada: 242 Millones en Youtube'
 }];
 
-var scrollAnimation = anime({
-    targets: temp,
-    translateX: 250,
-    delay: 200,
-    duration: 2000,
-    autoplay: false
-});
-
-var scrollAnimationR = anime({
-    targets: temp,
-    translateX: 250,
-    delay: 200,
-    duration: 2000,
-    direction: 'reverse',
-    autoplay: false
-});
-
 function mostrarTemp(i) {
     ocultarTemp();
 
@@ -64,13 +46,10 @@ function mostrarTemp(i) {
     temp.childNodes[1].childNodes[1].innerHTML = db[i].data;
 
     temp.style.opacity = '1';
-
-    // scrollAnimation.play();
 }
 
 function ocultarTemp() {
     temp.style.opacity = '0';
-    // scrollAnimationR.play();
 }
 
 var renderer, scene, camera;
@@ -156,7 +135,7 @@ function init() {
         var ii = parseInt(r);
         vertex = vertices[ii];
         vertex.toArray(positions, ii * 3);
-        if (i < db.length-1) {
+        if (i < db.length - 1) {
             color.setHSL(0.55, 0.8, 0.5);
         } else {
             color.setHSL(0.55, 0.5, 0.8);
@@ -272,9 +251,7 @@ function render() {
             attributes.size.array[INTERSECTED] = PARTICLE_SIZE + 10;
             attributes.size.needsUpdate = true;
 
-            if (rot) {
-                rot = false;
-            }
+            rot = false;
             if (attributes.ind.array[INTERSECTED] < 10) {
                 mostrarTemp(attributes.ind.array[INTERSECTED]);
             }
