@@ -91,7 +91,7 @@ var circles;
 
 var rot = true;
 
-var numObj = 10;
+var numObj = 30;
 
 init();
 animate();
@@ -157,7 +157,11 @@ function init() {
         var ii = parseInt(r);
         vertex = vertices[ii];
         vertex.toArray(positions, ii * 3);
+        if(i < 10){
         color.setHSL(0.55, 0.8, 0.5);
+        }else{
+            color.setHSL(0.55, 0.5, 0.8);
+        }
         color.toArray(colors, ii * 3);
         sizes[ii] = PARTICLE_SIZE;
         ind[ii] = i;
@@ -272,7 +276,9 @@ function render() {
             if (rot) {
                 rot = false;
             }
+            if(attributes.ind.array[INTERSECTED] < 10){
             mostrarTemp(attributes.ind.array[INTERSECTED]);
+        }
         }
     } else if (INTERSECTED !== null) { //releassed
         ocultarTemp();
