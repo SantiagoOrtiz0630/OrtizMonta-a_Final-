@@ -156,7 +156,7 @@ function init() {
         var ii = parseInt(r);
         vertex = vertices[ii];
         vertex.toArray(positions, ii * 3);
-        if (i < db.length) {
+        if (i < db.length-1) {
             color.setHSL(0.55, 0.8, 0.5);
         } else {
             color.setHSL(0.55, 0.5, 0.8);
