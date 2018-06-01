@@ -140,7 +140,7 @@ var mouse = new THREE.Vector2(),
 
 var contenedor = document.getElementById("grupo3D");
 
-var particles;
+var particles = [];
 
 
 init();
@@ -160,6 +160,7 @@ function init() {
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x141414);
+    scene.fog = new THREE.FogExp2( 0x000000, 0.0008 );
 
     var ambientLight = new THREE.AmbientLight(0x168e6, 0.3);
     scene.add(ambientLight);
@@ -181,6 +182,8 @@ function init() {
         var y = getRandom(-50, 50);
         var z = getRandom(-50, 50);
         vertices.push(x, y, z);
+
+        particles.push(vertices);
     }
 
     geometry.addAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
@@ -192,10 +195,13 @@ function init() {
         alphaTest: 0.5,
         transparent: true
     });
-    material.color.setHSL(0.6, 0.5, 0.5);
+    material.color.setHSL(0.6, 0.5, 0.9);
 
-    particles = new THREE.Points(geometry, material);
-    scene.add(particles);
+    var sistema = new THREE.Points(geometry, material);
+
+   
+    
+    scene.add(sistema);
     //
 
     // model
@@ -263,20 +269,15 @@ function cambioDeTamano() {
 }
 
 function render() {
-
-
-
     // find intersections
-
-
     raycaster.setFromCamera(mouse, camera);
-    var intersects = raycaster.intersectObjects(scene.children);
+    var intersects = raycaster.intersectObjects(particles);
     if (intersects.length > 0) {
         if (INTERSECTED != intersects[0].object) {
-            if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
-            INTERSECTED = intersects[0].object;
-            INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
-            INTERSECTED.material.emissive.setHex(0xff0000);
+            if (INTERSECTED) {
+                INTERSECTED = intersects[0].object;
+                INTERSECTED.setSize += 100;
+            }
         }
     } else {
         if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
