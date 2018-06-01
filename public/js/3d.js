@@ -157,17 +157,13 @@ function init() {
         var ii = parseInt(r);
         vertex = vertices[ii];
         vertex.toArray(positions, ii * 3);
-        if (i < 10) {
+        if (i < db.length) {
             color.setHSL(0.55, 0.8, 0.5);
         } else {
             color.setHSL(0.55, 0.5, 0.8);
         }
-        if (i < 10) {
-            sizes[ii] = PARTICLE_SIZE;
-        } else {
-            sizes[ii] = 15;
-        }
         color.toArray(colors, ii * 3);
+        sizes[ii] = PARTICLE_SIZE;
         ind[ii] = i;
     }
 
