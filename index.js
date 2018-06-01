@@ -72,6 +72,12 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/3d', (req, res) => {
+    res.render('3d', {
+        title: 'holi'
+    });
+});
+
 app.get('/song/:id', (req, res) => {
     var idd = parseInt(req.params.id);
 

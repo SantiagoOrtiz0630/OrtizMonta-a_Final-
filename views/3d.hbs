@@ -1,0 +1,66 @@
+<section id="up">
+
+
+    <div id="grupo3D">
+        <div id="temp">
+            <div class="cont"><h1></h1><h3></h3></div>
+        </div>
+    </div>
+
+    <header style="background-color: rgba(20, 20, 20, 0.6);">
+        <div class="logo">
+
+        </div>
+
+        <div class="menu">
+            <a href="/">INICIO</a>
+            <a href="/3d/">DESCUBRE</a>
+            <a href="/player/">CANCIONES</a>
+            <a href="/list/">COLECCIÓN</a>
+        </div>
+
+    </header>
+
+
+</section>
+
+
+<script language="javascript" type="text/javascript" src="/js/libs/three/three.js"></script>
+<script language="javascript" type="text/javascript" src="/js/libs/three/OrbitControls.js"></script>
+<script language="javascript" type="text/javascript" src="/js/libs/three/DDSLoader.js"></script>
+<script language="javascript" type="text/javascript" src="/js/libs/three/MTLLoader.js"></script>
+<script language="javascript" type="text/javascript" src="/js/libs/three/OBJLoader.js"></script>
+<script language="javascript" type="text/javascript" src="/js/libs/anime.min.js"></script>
+
+<script type="x-shader/x-vertex" id="vertexshader">
+
+        attribute float size; 
+        attribute vec3 customColor; 
+        varying vec3 vColor; 
+        void main() { 
+            vColor = customColor; 
+            vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 ); 
+            gl_PointSize = size * ( 300.0 / -mvPosition.z ); 
+            gl_Position = projectionMatrix * mvPosition; 
+            }
+
+    </script>
+
+    <script type="x-shader/x-fragment" id="fragmentshader">
+
+        uniform vec3 color; 
+        uniform sampler2D texture; 
+        varying vec3 vColor; 
+        
+        void main() { 
+            gl_FragColor = vec4( color * vColor, 1.0
+        ); 
+
+        gl_FragColor = gl_FragColor * texture2D( texture, gl_PointCoord ); 
+
+        if ( gl_FragColor.a < ALPHATEST ) discard;
+        }
+            
+            </script>
+
+<script language="javascript" type="text/javascript" src="/js/3d.js"></script>

@@ -66,6 +66,53 @@ body #up #slider div {
   height: 100%;
 }
 
+body #up #grupo3D {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+}
+
+body #up #grupo3D #temp {
+  position: absolute;
+  width: 300px;
+  height: 100px;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(20, 20, 20, 0.6);
+}
+
+body #up #grupo3D #temp .cont {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: flex-start;
+  margin: 20px;
+}
+
+body #up #grupo3D #temp .cont h1 {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  font-size: 24px;
+  color: #1688e6;
+  font-style: oblique;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+}
+
+body #up #grupo3D #temp .cont h3 {
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  font-size: 18px;
+  color: #fafafa;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+}
+
 body #up header {
   position: absolute;
   padding: 10px;
@@ -100,7 +147,7 @@ body #up header .menu {
   order: 0;
   flex: 0 1 auto;
   align-self: auto;
-  width: 30%;
+  width: 35%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -1010,11 +1057,6 @@ body #song > .cont #canvas > .cont #tipe {
     width: 300px;
     height: 300px;
   }
-}
-
-body #grupo3D {
-  width: 100%;
-  height: 700px;
 }
 
 body #list {
