@@ -44,7 +44,7 @@ var scrollAnimation = anime({
     targets: temp,
     translateX: 250,
     delay: 200,
-    duration: 1000,
+    duration: 2000,
     autoplay: false
 });
 
@@ -52,7 +52,7 @@ var scrollAnimationR = anime({
     targets: temp,
     translateX: 250,
     delay: 200,
-    duration: 1000,
+    duration: 2000,
     direction: 'reverse',
     autoplay: false
 });
@@ -65,18 +65,18 @@ function mostrarTemp(i) {
 
     temp.style.opacity = '1';
 
-    scrollAnimation.play;
+   // scrollAnimation.play();
 }
 
 function ocultarTemp() {
     temp.style.opacity = '0';
-    scrollAnimationR.play;
+   // scrollAnimationR.play();
 }
 //3D
 
 var renderer, scene, camera;
 var particles, uniforms;
-var PARTICLE_SIZE = 25;
+var PARTICLE_SIZE = 20;
 var raycaster, intersects;
 var mouse = new THREE.Vector2(),
     INTERSECTED;
@@ -182,7 +182,7 @@ function init() {
         fragmentShader: document.getElementById('fragmentshader').textContent,
         alphaTest: 0.9
     });
-    //
+
     particles = new THREE.Points(geometry, material);
     scene.add(particles);
     //
