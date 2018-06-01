@@ -102,7 +102,7 @@ var circles;
 
 var rot = true;
 
-var numObj = 3000;
+var numObj = 30;
 
 init();
 animate();
