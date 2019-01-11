@@ -50,13 +50,17 @@
             {{/if}}
         </article>
 
-        <article id="canvas">
-            <div class="cont">
+        <section id="songPlayer">
+            <article id="canvas">
+            </article>
+
+            <div id="contButton">
                 <button class="btnPlayer" id="play"></button>
                 <button class="btnPlayer" id="stop"></button>
                 <button class="btnPlayer" id="tipe"></button>
             </div>
-        </article>
+        </section>
+
     </div>
 
     <div class="space"></div>
@@ -94,13 +98,13 @@
         <a href="https://thenbhd.com/">www.thenbhd.com</a>
         <div class="cont">
             <a href="https://www.facebook.com/TheNeighbourhood/">
-                <div style="background-image: url('rec/feed/1.svg')"></div>
+                <div style="background-image: url('/rec/feed/1.svg');"></div>
             </a>
             <a href="https://www.youtube.com/user/TheNeighbourhoodVEVO">
-                <div style="background-image: url('rec/feed/2.svg')"></div>
+                <div style="background-image: url('/rec/feed/2.svg');"></div>
             </a>
             <a href="https://www.instagram.com/thenbhd/">
-                <div style="background-image: url('rec/feed/3.svg')"></div>
+                <div style="background-image: url('/rec/feed/3.svg');"></div>
             </a>
         </div>
     </div>
@@ -114,7 +118,7 @@
 <script language="javascript" type="text/javascript" src="/js/libs/p5.sound.js"></script>
 
 <script>
-    var idSonido = {{song.id}};
+    var idSonido = {{ song.id }};
 </script>
 
 <script language="javascript" type="text/javascript" src="/js/song.js"></script>
